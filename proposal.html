@@ -10595,9 +10595,9 @@ a.anchor-link {
 <span class="n">target_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">target_counts</span><span class="p">[</span><span class="s1">'Target'</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_counts</span><span class="p">[</span><span class="s1">'Target'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s1">'Tidak'</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">'Ya'</span><span class="p">})</span>
 
-<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">target_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Target'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'Target'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Target'</span><span class="p">:</span> <span class="s1">'Status Gagal Bayar'</span><span class="p">})</span>\
+<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">target_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Target'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'Target'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Target'</span><span class="p">:</span> <span class="s1">'Gagal Bayar'</span><span class="p">})</span>\
     <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_tickformat</span><span class="o">=</span><span class="s1">',d'</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Customer Berdasarkan Status Gagal Bayar'</span><span class="p">,</span> <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Customer Berdasarkan Gagal Bayar'</span><span class="p">,</span> <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -10610,6 +10610,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot1.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -10658,7 +10672,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">default_customers_by_gender</span> <span class="o">=</span> <span class="n">default_customers</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Gender'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Male'</span><span class="p">,</span> <span class="s1">'Female'</span><span class="p">],</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="n">default_customers_by_gender</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Gender'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Pria'</span><span class="p">,</span> <span class="s1">'Wanita'</span><span class="p">],</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="n">default_customers_by_gender</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
 <span class="n">default_customers_by_gender</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">default_customers_by_gender</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Gender'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'Gender'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Gender'</span><span class="p">:</span> <span class="s1">'Jenis Kelamin'</span><span class="p">})</span>\
@@ -10675,6 +10689,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot2.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -10709,10 +10737,10 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">education_mapping</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s1">'lainnya'</span><span class="p">,</span>
-    <span class="mi">2</span><span class="p">:</span> <span class="s1">'sekolah menengah'</span><span class="p">,</span>
-    <span class="mi">3</span><span class="p">:</span> <span class="s1">'universitas'</span><span class="p">,</span>
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">'sekolah pascasarjana'</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">'Lainnya'</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s1">'Sekolah menengah'</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s1">'Universitas'</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">'Sekolah pascasarjana'</span>
 <span class="p">}</span>
 <span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">default_customers</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'EDUCATION'</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_customers</span><span class="p">[</span><span class="s1">'EDUCATION'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">education_mapping</span><span class="p">)</span>
@@ -10735,6 +10763,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot3.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -10771,7 +10813,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">s'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">-an'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 <span class="n">default_customers</span><span class="p">[</span><span class="s1">'Age_Group'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">default_customers</span><span class="p">[</span><span class="s1">'AGE'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bin_labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">default_customers_by_age_group</span> <span class="o">=</span> <span class="n">default_customers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Age_Group'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">)</span>
@@ -10790,6 +10832,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot4.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -10860,6 +10916,20 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot5.png" style="width:100%;"/>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Berdasarkan grafik di atas, didapatkan bahwa <strong>mayoritas customer gagal bayar berstatus lajang</strong>. Diikuti dengan customer berstatus menikah. Sementara itu <strong>customer berstatus bercerai dan lainnya menjadi minoritas</strong>.</p>
 </div>
 </div>
@@ -10886,12 +10956,12 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">default_customers</span><span class="p">[</span><span class="s1">'LIMIT_BAL'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
-<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">k-</span><span class="si">{}</span><span class="s1">k'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">100000</span><span class="p">)]</span>
+<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">ribu-</span><span class="si">{}</span><span class="s1">ribu'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">100000</span><span class="p">)]</span>
 
 <span class="n">default_customers</span><span class="p">[</span><span class="s1">'Limit_Balance_Range'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">default_customers</span><span class="p">[</span><span class="s1">'LIMIT_BAL'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bin_labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">customer_count_by_range</span> <span class="o">=</span> <span class="n">default_customers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Limit_Balance_Range'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">)</span>
 
-<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">customer_count_by_range</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Limit_Balance_Range'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Customer_Count'</span><span class="p">:</span> <span class="s1">'Banyaknya Customer'</span><span class="p">,</span> <span class="s1">'Limit_Balance_Range'</span><span class="p">:</span> <span class="s1">'Kredit Limit (per 100k)'</span><span class="p">})</span> \
+<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">customer_count_by_range</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Limit_Balance_Range'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Customer_Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Limit_Balance_Range'</span><span class="p">:</span> <span class="s1">'Kredit Limit (per 100ribu)'</span><span class="p">})</span> \
     <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Customer Gagal Bayar Berdasarkan Kredit Limit'</span><span class="p">,</span> <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -10905,6 +10975,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot6.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -10952,7 +11036,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">non_default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">non_default_customers_by_gender</span> <span class="o">=</span> <span class="n">non_default_customers</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Gender'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Male'</span><span class="p">,</span> <span class="s1">'Female'</span><span class="p">],</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="n">non_default_customers_by_gender</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Gender'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Pria'</span><span class="p">,</span> <span class="s1">'Wanita'</span><span class="p">],</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="n">non_default_customers_by_gender</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
 <span class="n">non_default_customers_by_gender</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">non_default_customers_by_gender</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Gender'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'Gender'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Gender'</span><span class="p">:</span> <span class="s1">'Jenis Kelamin'</span><span class="p">})</span>\
@@ -10969,6 +11053,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot7.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11033,6 +11131,20 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot8.png" style="width:100%;"/>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Dari grafik di atas, terlihat bahwa <strong>mayoritas customer yang tidak gagal membayar memiliki tingkat pendidikan universitas</strong>, diikuti oleh sekolah pascasarjana, sekolah menengah, dan lainnya.</p>
 </div>
 </div>
@@ -11059,7 +11171,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">non_default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">s'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">-an'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 <span class="n">non_default_customers</span><span class="p">[</span><span class="s1">'Age_Group'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">non_default_customers</span><span class="p">[</span><span class="s1">'AGE'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bin_labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">non_default_customers_by_age_group</span> <span class="o">=</span> <span class="n">non_default_customers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Age_Group'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">)</span>
@@ -11078,6 +11190,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot9.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11118,7 +11244,7 @@ a.anchor-link {
 
 <span class="n">non_default_customers_by_marriage</span><span class="p">[</span><span class="s1">'Marriage_Status'</span><span class="p">]</span> <span class="o">=</span> <span class="n">non_default_customers_by_marriage</span><span class="p">[</span><span class="s1">'Marriage_Status_Code'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">marriage_status_mapping</span><span class="p">)</span>
 
-<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">non_default_customers_by_marriage</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Marriage_Status'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer Gagal Bayar'</span><span class="p">,</span> <span class="s1">'Marriage_Status'</span><span class="p">:</span> <span class="s1">'Status Pernikahan'</span><span class="p">})</span> \
+<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">non_default_customers_by_marriage</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Marriage_Status'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Marriage_Status'</span><span class="p">:</span> <span class="s1">'Status Pernikahan'</span><span class="p">})</span> \
     <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Customer Tidak Gagal Bayar Berdasarkan Status Pernikahan'</span><span class="p">,</span> <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -11132,6 +11258,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot10.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11168,12 +11308,12 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">default_customers</span><span class="p">[</span><span class="s1">'LIMIT_BAL'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
-<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">k-</span><span class="si">{}</span><span class="s1">k'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">100000</span><span class="p">)]</span>
+<span class="n">bin_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'</span><span class="si">{}</span><span class="s1">ribu-</span><span class="si">{}</span><span class="s1">ribu'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">100000</span><span class="p">)]</span>
 
 <span class="n">default_customers</span><span class="p">[</span><span class="s1">'Limit_Balance_Range'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">default_customers</span><span class="p">[</span><span class="s1">'LIMIT_BAL'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bin_labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">customer_count_by_range</span> <span class="o">=</span> <span class="n">default_customers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Limit_Balance_Range'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">)</span>
 
-<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">customer_count_by_range</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Limit_Balance_Range'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Customer_Count'</span><span class="p">:</span> <span class="s1">'Banyaknya Customer'</span><span class="p">,</span> <span class="s1">'Limit_Balance_Range'</span><span class="p">:</span> <span class="s1">'Kredit Limit (per 100k)'</span><span class="p">})</span> \
+<span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">customer_count_by_range</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'Limit_Balance_Range'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Customer_Count'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">'Customer_Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span> <span class="s1">'Limit_Balance_Range'</span><span class="p">:</span> <span class="s1">'Kredit Limit (per 100ribu)'</span><span class="p">})</span> \
     <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Customer Tidak Gagal Bayar Berdasarkan Kredit Limit'</span><span class="p">,</span> <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -11187,6 +11327,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot11.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11256,7 +11410,7 @@ a.anchor-link {
 
 <span class="n">px</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="n">age_sex_education_marriage_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'AGE'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'SEX'</span><span class="p">,</span> <span class="n">line_group</span><span class="o">=</span><span class="s1">'SEX'</span><span class="p">,</span>
               <span class="n">facet_col</span><span class="o">=</span><span class="s1">'EDUCATION'</span><span class="p">,</span> <span class="n">facet_row</span><span class="o">=</span><span class="s1">'MARRIAGE'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
-                  <span class="s1">'AGE'</span><span class="p">:</span> <span class="s1">'Usia'</span><span class="p">,</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Banyaknya Orang'</span><span class="p">,</span>
+                  <span class="s1">'AGE'</span><span class="p">:</span> <span class="s1">'Usia'</span><span class="p">,</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span>
                   <span class="s1">'SEX'</span><span class="p">:</span> <span class="s1">'Jenis Kelamin'</span><span class="p">,</span> <span class="s1">'EDUCATION'</span><span class="p">:</span> <span class="s1">'Pendidikan'</span><span class="p">,</span> <span class="s1">'MARRIAGE'</span><span class="p">:</span> <span class="s1">'Status Perkawinan'</span>
               <span class="p">},</span>
               <span class="n">color_discrete_map</span><span class="o">=</span><span class="p">{</span><span class="s1">'Pria'</span><span class="p">:</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'Wanita'</span><span class="p">:</span> <span class="s1">'pink'</span><span class="p">},</span>
@@ -11280,6 +11434,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot12.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11344,14 +11512,14 @@ a.anchor-link {
 
 <span class="n">px</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="n">age_sex_education_marriage_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'AGE'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'SEX'</span><span class="p">,</span> <span class="n">line_group</span><span class="o">=</span><span class="s1">'SEX'</span><span class="p">,</span>
               <span class="n">facet_col</span><span class="o">=</span><span class="s1">'EDUCATION'</span><span class="p">,</span> <span class="n">facet_row</span><span class="o">=</span><span class="s1">'MARRIAGE'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
-                  <span class="s1">'AGE'</span><span class="p">:</span> <span class="s1">'Usia'</span><span class="p">,</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Banyaknya Orang'</span><span class="p">,</span>
+                  <span class="s1">'AGE'</span><span class="p">:</span> <span class="s1">'Usia'</span><span class="p">,</span> <span class="s1">'Count'</span><span class="p">:</span> <span class="s1">'Jumlah Customer'</span><span class="p">,</span>
                   <span class="s1">'SEX'</span><span class="p">:</span> <span class="s1">'Jenis Kelamin'</span><span class="p">,</span> <span class="s1">'EDUCATION'</span><span class="p">:</span> <span class="s1">'Pendidikan'</span><span class="p">,</span> <span class="s1">'MARRIAGE'</span><span class="p">:</span> <span class="s1">'Status Perkawinan'</span>
               <span class="p">},</span>
               <span class="n">color_discrete_map</span><span class="o">=</span><span class="p">{</span><span class="s1">'Pria'</span><span class="p">:</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'Wanita'</span><span class="p">:</span> <span class="s1">'pink'</span><span class="p">},</span>
               <span class="n">category_orders</span><span class="o">=</span><span class="p">{</span><span class="s1">'EDUCATION'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Lainnya'</span><span class="p">,</span> <span class="s1">'Sekolah menengah'</span><span class="p">,</span> <span class="s1">'Universitas'</span><span class="p">,</span> <span class="s1">'Sekolah pascasarjana'</span><span class="p">]})</span>\
     <span class="o">.</span><span class="n">for_each_annotation</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"EDUCATION="</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"MARRIAGE="</span><span class="p">,</span> <span class="s2">""</span><span class="p">)))</span>\
     <span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">'Persona Customer Gagal Bayar'</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">'Persona Customer Tidak Gagal Bayar'</span><span class="p">,</span>
         <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s2">"h"</span><span class="p">,</span> <span class="n">yanchor</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">xanchor</span><span class="o">=</span><span class="s2">"right"</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
         <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
@@ -11368,6 +11536,20 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div align="center">
+<img alt="" src="plot/plot13.png" style="width:100%;"/>
+
+</div>
 </div>
 </div>
 </div>
@@ -11608,7 +11790,7 @@ a.anchor-link {
 <p>Seperti yang telah dijelaskan di atas, pada projek kali ini akan dibuat sebuah dashboard yang memiliki 2 buah fitur. Fitur-fitur tersebut adalah sebagai berikut:</p>
 <h3 id="1.-Profiling-Customer">1. Profiling Customer<a class="anchor-link" href="#1.-Profiling-Customer">¶</a></h3><div align="center">
 <img alt="" src="Mock_fitur1.png" style="width:50%;"/>
-<p>Sumber: Mock design fitur profiling customer</p>
+<p>Mock design fitur profiling customer</p>
 
 </div>
 </div>
@@ -11621,7 +11803,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Prediksi-Customer">Prediksi Customer<a class="anchor-link" href="#Prediksi-Customer">¶</a></h3><div align="center">
+<h3 id="2.-Prediksi-Customer">2. Prediksi Customer<a class="anchor-link" href="#2.-Prediksi-Customer">¶</a></h3><div align="center">
 <img alt="" src="Mock_fitur2.png" style="width:50%;"/>
 <p>Mock design fitur prediksi customer</p>
 
