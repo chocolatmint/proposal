@@ -7546,9 +7546,17 @@ a.anchor-link {
 <p>Dari grafik di atas, dapat dilihat bahwa pada Juli 2023 di Indonesia terdapat nilai transaksi kartu kredit sebesar Rp. 35 Milyar. Nilai tersebut merupakan nilai yang besar.</p>
 <p>Seiring dengan meningkatnya penggunaan kartu kredit, kemungkinan risiko gagal bayar (default) juga semakin meningkat. Hal ini menjadi perhatian serius bagi lembaga keuangan penyedia kartu kredit. Ketika seorang customer gagal membayar tagihan kartu kreditnya secara tepat waktu, tidak hanya merusak reputasi yang bersangkutan, hal ini juga mengakibatkan kerugian finansial bagi lembaga keuangan pemberi pinjaman.</p>
 <p>Salah satu metric yang sangat diperhatikan oleh lembaga keuangan adalah Non-Performing Loan (NPL) atau rasio kredit macet. NPL mengukur jumlah pinjaman yang tidak dibayar kembali oleh customer. Semakin tinggi NPL, semakin besar risiko keuangan yang dihadapi oleh lembaga keuangan. Penting bagi lembaga keuangan untuk memantau dan mengelola risiko gagal bayar dengan hati-hati untuk menjaga kesehatan finansial mereka.</p>
-<p>Proses existing untuk memantau dan mengelola risiko gagal bayar sudah dimiliki oleh lembaga keuangan. Proses tersebut biasanya dilakukan oleh seorang kredit analis, dengan melakukan analisis manual terhadap data customer, seperti riwayat pembayaran, jumlah tagihan, dan faktor lainnya, untuk menilai risiko kredit secara langsung berdasarkan pengalaman dan pengetahuan mereka. Akan tetapi, analisis manual sering kali memiliki keterbatasan dalam menangani data yang banyak dan kompleksitas yang semakin meningkat. Analisis manual dapat menjadi proses yang memakan waktu dan rentan terhadap <em>human error</em>, terutama saat harus mengolah jumlah data yang besar dengan cepat.</p>
+<div align="center">
+<a href="https://databoks.katadata.co.id/datapublish/2024/04/02/kredit-macet-turun-akhir-2023-lebih-baik-dari-pra-pandemi">
+<img alt="" src="npl.png" style="width:50%;"/>
+<p>Sumber: Databoks</p>
+</a>
+</div>
+<p>Di Indonesia sendiri hingga akhir 2023, nilai NPLnya menurun dikarenakan kondisi pandemi telah berakhir. Akan tetapi tentu saja nilai NPL ini bisa lebih diminimalisir.</p>
+<p>Proses existing untuk memantau dan mengelola risiko gagal bayar sudah dimiliki oleh lembaga keuangan. Proses tersebut biasanya dilakukan oleh seorang kredit analis, dengan melakukan analisis manual terhadap data customer, seperti riwayat pembayaran, jumlah tagihan, dan faktor lainnya, untuk menilai risiko kredit secara langsung berdasarkan pengalaman dan pengetahuan mereka. Akan tetapi, analisis manual sering kali memiliki keterbatasan dalam menangani data yang banyak dan kompleksitas yang semakin meningkat. Analisis manual dapat menjadi proses yang memakan waktu dan rentan terhadap <em>human error</em>, terutama saat harus mengolah jumlah data yang besar dengan cepat. Analisis manual juga memerlukan waktu yang cukup lama karena dilakukan oleh manusia, berbeda dengan pemrosesan secara otomatis yang bisa dilakukan dengan cepat oleh komputer.</p>
 <p>Oleh karena itu, lembaga keuangan perlu memiliki suatu mekanisme efektif yang dapat menganalisis risiko gagal bayar kartu kredit. Dengan menggunakan data historis tentang perilaku pembayaran customer, kita dapat menggunakan pemodelan Machine Learning yang dapat membantu memprediksi kemungkinan seorang customer gagal membayar tagihan kartu kreditnya. Pemodelan Machine Learning tersebut dapat menganalisis banyak data dengan cepat dan akurat, memberikan prediksi yang lebih baik tentang peluang risiko gagal bayar. Dengan adanya pemodelan Machine Learning, lembaga keuangan dapat mengidentifikasi customer secara <em>on the fly</em> dan dapat melakukan tindakan yang sesuai dengan profil resiko customer tersebut.</p>
-<p>Pada projek ini, kami akan membahas pengembangan model untuk memperkirakan kemungkinan customer gagal bayar kartu kredit. Dengan algoritma pemodelan yang tepat, diharapkan projek ini dapat membantu kredit analis dari lembaga-lembaga keuangan penerbit kartu kredit untuk mengidentifikasi customer mana saja yang berpotensi gagal bayar dan customer mana saja yang berpotensi membayar tagihan kartu kredit.</p>
+<p>Tentu saja, hal ini tidak hanya bermanfaat terhadap lembaga keuangan yang menerbitkan kartu kredit. Analisis profil pelanggan untuk mengurangi risiko gagal bayar juga dapat digunakan pada lembaga-lembaga keuangan lainnya yang melakukan pemberian kredit kepada pelanggannya; seperti bank untuk KUR (Kredit Usaha Rakyat), KPR (Kredit Kepemilikan Rumah), Kredit Kepemilikan Kendaraan (K3), ataupun instansi lainnya seperti <em>multifinance</em>, <em>Peer to Peer lending</em>, ataupun lembaga keuangan penyedia layanan peminjaman uang secara <em>online</em>.</p>
+<p>Akan tetapi, mengingat terbatasnya pengetahuan penulis, penulis membatasi projek ini pada analisis profil pelanggan untuk mengurangi risiko gagal bayar dalam industri kartu kredit. Pada projek ini, penulis akan membahas pengembangan model untuk memperkirakan kemungkinan customer gagal bayar kartu kredit. Dengan algoritma pemodelan yang tepat, diharapkan projek ini dapat membantu kredit analis dari lembaga-lembaga keuangan penerbit kartu kredit untuk mengidentifikasi customer mana saja yang berpotensi gagal bayar dan customer mana saja yang berpotensi membayar tagihan kartu kredit.</p>
 </div>
 </div>
 </div>
@@ -7583,7 +7591,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Problem-Scope">Problem Scope<a class="anchor-link" href="#Problem-Scope">¶</a></h2><p>Projek ini akan menggunakan dataset yang diambil dari situs UCI dengan judul <a href="https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients">"Default of Credit Card Clients"</a>. Dataset ini diambil di sebuah lembaga keuangan di negara Taiwan pada tahun 2005. Informasi yang dikandung dataset ini adalah sebagai berikut:</p>
+<h2 id="Problem-Scope">Problem Scope<a class="anchor-link" href="#Problem-Scope">¶</a></h2><p>Projek ini akan menggunakan dataset yang diambil dari situs UCI dengan judul <a href="https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients">"Default of Credit Card Clients"</a>. Dataset ini diambil di sebuah lembaga keuangan di negara Taiwan pada tahun 2005.</p>
+<p>Sebelum melanjutkan, penulis ingin memberikan <strong>disclaimer</strong> bahwa kemungkinan terjadinya ketidak-relevanan hasil prediksi dapat terjadi dikarenakan dataset yang digunakan terlalu <em>outdated</em> dan berbeda dengan kondisi sosial-ekonomi yang ada di Indonesia, sehingga diperlukan analisis lebih lanjut jika pemodelan ini ingin diimplementasikan pada data kondisi masa kini di Indonesia.</p>
+<p>Informasi yang dikandung dataset ini adalah sebagai berikut:</p>
 <ul>
 <li><p><strong>LIMIT_BAL</strong>: Jumlah kredit yang diberikan (dalam dollar NT): termasuk kredit individu dan kredit keluarganya (tambahan).</p>
 </li>
@@ -7601,14 +7611,14 @@ a.anchor-link {
 </li>
 <li><p><strong>PAY_AMT1 - PAY_AMT6</strong>: Jumlah pembayaran sebelumnya (dalam dollar NT). PAY_AMT1 = jumlah yang dibayar pada September, 2005; PAY_AMT2 = jumlah yang dibayar pada Agustus, 2005; . . .; PAY_AMT6 = jumlah yang dibayar pada April, 2005.</p>
 </li>
-<li><p>default payment next month: nilai pembayaran default (Ya = 1, Tidak = 0).</p>
+<li><p><strong>default payment next month</strong>: nilai pembayaran default (Ya = 1, Tidak = 0).</p>
 </li>
 </ul>
 <blockquote>
 <p>Dari kolom-kolom yang ada di dataset di atas, didapat bahwa:</p>
 </blockquote>
 <ul>
-<li><p><strong>Target variabela</strong> adalah kolom Y</p>
+<li><p><strong>Target variabel</strong> adalah kolom Y</p>
 </li>
 <li><p><strong>Prediktor variabel</strong> adalah semua kolom selain kolom Y</p>
 </li>
@@ -7701,6 +7711,8 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scorecardpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">custom_float_format</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -10497,11 +10509,11 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>78</td>
+<td>77.874187</td>
 </tr>
 <tr>
 <th>1</th>
-<td>22</td>
+<td>22.125813</td>
 </tr>
 </tbody>
 </table>
@@ -11385,20 +11397,21 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[[</span><span class="s1">'MARRIAGE_1'</span><span class="p">,</span> <span class="s1">'MARRIAGE_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">credit_default_copy</span> <span class="o">=</span> <span class="n">credit_default</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[[</span><span class="s1">'MARRIAGE_1'</span><span class="p">,</span> <span class="s1">'MARRIAGE_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="s1">'MARRIAGE_1'</span><span class="p">:</span> <span class="s1">'Menikah'</span><span class="p">,</span>
     <span class="s1">'MARRIAGE_2'</span><span class="p">:</span> <span class="s1">'Lajang'</span>
 <span class="p">})</span>
 
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="s1">'SEX_1'</span><span class="p">:</span> <span class="s1">'Pria'</span><span class="p">,</span>
     <span class="s1">'SEX_2'</span><span class="p">:</span> <span class="s1">'Wanita'</span>
 <span class="p">})</span>
 
-<span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">default_customers</span><span class="p">[</span><span class="s1">'EDUCATION'</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_customers</span><span class="p">[</span><span class="s1">'EDUCATION'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="mi">1</span><span class="p">:</span> <span class="s1">'Lainnya'</span><span class="p">,</span>
@@ -11487,20 +11500,21 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[[</span><span class="s1">'MARRIAGE_1'</span><span class="p">,</span> <span class="s1">'MARRIAGE_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">credit_default_copy</span> <span class="o">=</span> <span class="n">credit_default</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[[</span><span class="s1">'MARRIAGE_1'</span><span class="p">,</span> <span class="s1">'MARRIAGE_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[[</span><span class="s1">'SEX_1'</span><span class="p">,</span> <span class="s1">'SEX_2'</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'MARRIAGE'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="s1">'MARRIAGE_1'</span><span class="p">:</span> <span class="s1">'Menikah'</span><span class="p">,</span>
     <span class="s1">'MARRIAGE_2'</span><span class="p">:</span> <span class="s1">'Lajang'</span>
 <span class="p">})</span>
 
-<span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+<span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'SEX'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="s1">'SEX_1'</span><span class="p">:</span> <span class="s1">'Pria'</span><span class="p">,</span>
     <span class="s1">'SEX_2'</span><span class="p">:</span> <span class="s1">'Wanita'</span>
 <span class="p">})</span>
 
-<span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default</span><span class="p">[</span><span class="n">credit_default</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">default_customers</span> <span class="o">=</span> <span class="n">credit_default_copy</span><span class="p">[</span><span class="n">credit_default_copy</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">default_customers</span><span class="p">[</span><span class="s1">'EDUCATION'</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_customers</span><span class="p">[</span><span class="s1">'EDUCATION'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="mi">1</span><span class="p">:</span> <span class="s1">'Lainnya'</span><span class="p">,</span>
@@ -11567,6 +11581,231 @@ a.anchor-link {
 <li>Customer wanita di usia 29 tahun dengan tingkat pendidikan sekolah pascasarjana dan status perkawinan lajang mayoritas tidak gagal bayar.</li>
 <li>Pada customer pria, customer dengan usia 29 dengan tingkat pendidikan sekolah pascasarjana dan status perkawinan lajang mayoritas tidak gagal bayar.</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Hubungan-Target-dengan-Variabel-Continuous">Hubungan Target dengan Variabel Continuous<a class="anchor-link" href="#Hubungan-Target-dengan-Variabel-Continuous">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Sementara itu, bagaimana hubungan target dengan kolom-kolom bernilai continuous? Kita dapat mengetahuinya dengan menggunakan metode Weight of Evidence (WoE). Metode ini akan melakukan pengkategorian nilai yang dimiliki setiap kolom prediktor, dan kemudian menghitung bobot tiap kelas positif dan negatifnya. Pertama, lakukan binning terhadap kolom continuous:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">continuous_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'LIMIT_BAL'</span><span class="p">,</span> <span class="s1">'BILL_AMT1'</span><span class="p">,</span> <span class="s1">'BILL_AMT2'</span><span class="p">,</span> <span class="s1">'BILL_AMT3'</span><span class="p">,</span> <span class="s1">'BILL_AMT4'</span><span class="p">,</span> <span class="s1">'BILL_AMT5'</span><span class="p">,</span> <span class="s1">'BILL_AMT6'</span><span class="p">,</span>
+                       <span class="s1">'PAY_AMT1'</span><span class="p">,</span> <span class="s1">'PAY_AMT2'</span><span class="p">,</span> <span class="s1">'PAY_AMT3'</span><span class="p">,</span> <span class="s1">'PAY_AMT4'</span><span class="p">,</span> <span class="s1">'PAY_AMT5'</span><span class="p">,</span> <span class="s1">'PAY_AMT6'</span><span class="p">]</span>
+<span class="n">credit_default_reverse</span> <span class="o">=</span> <span class="n">credit_default</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">default_next_month</span> <span class="o">=</span> <span class="n">credit_default_reverse</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span>
+<span class="n">credit_default_reverse</span> <span class="o">=</span> <span class="n">credit_default_reverse</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">continuous_vars</span><span class="p">]</span>
+
+<span class="n">credit_default_reverse</span><span class="p">[</span><span class="s1">'default payment next month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_next_month</span>
+
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">woebin</span><span class="p">(</span><span class="n">credit_default_reverse</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">continuous_vars</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'default payment next month'</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="s1">'0'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>[INFO] creating woe binning ...
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Setelah binning terbentuk, selanjutnya adalah melakukan pengimplementasian nilai WoE tadi terhadap data <code>credit_default_reverse</code>:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">credit_default_woe</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">woebin_ply</span><span class="p">(</span><span class="n">dt</span> <span class="o">=</span> <span class="n">credit_default_reverse</span><span class="p">,</span>
+                        <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>[INFO] converting into woe values ...
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Setelah melakukan pengimplementasian WoE, langkah selanjutnya adalah melihat nilai Information Value (IV). Nilai ini merupakan nilai yang menunjukkan seberapa kuat hubungan suatu kolom terhadap kolom target. Semakin tinggi nilai IV pada suatu kolom, maka semakin kuat hubungan kolom tersebut dengan kolom target. Dan demikian juga dengan kebalikannya, semakin rendah nilai IV pada suatu kolom, maka semakin lemah hubungan kolom tersebut dengan kolom target.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">iv</span><span class="p">(</span><span class="n">credit_default_woe</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'default payment next month'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>variable</th>
+<th>info_value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>6</th>
+<td>LIMIT_BAL_woe</td>
+<td>0.168592</td>
+</tr>
+<tr>
+<th>2</th>
+<td>PAY_AMT6_woe</td>
+<td>0.161635</td>
+</tr>
+<tr>
+<th>1</th>
+<td>PAY_AMT5_woe</td>
+<td>0.152524</td>
+</tr>
+<tr>
+<th>5</th>
+<td>PAY_AMT4_woe</td>
+<td>0.117145</td>
+</tr>
+<tr>
+<th>0</th>
+<td>PAY_AMT3_woe</td>
+<td>0.093580</td>
+</tr>
+<tr>
+<th>4</th>
+<td>PAY_AMT1_woe</td>
+<td>0.090656</td>
+</tr>
+<tr>
+<th>7</th>
+<td>PAY_AMT2_woe</td>
+<td>0.084706</td>
+</tr>
+<tr>
+<th>10</th>
+<td>BILL_AMT1_woe</td>
+<td>0.011374</td>
+</tr>
+<tr>
+<th>8</th>
+<td>BILL_AMT5_woe</td>
+<td>0.010723</td>
+</tr>
+<tr>
+<th>12</th>
+<td>BILL_AMT2_woe</td>
+<td>0.010056</td>
+</tr>
+<tr>
+<th>9</th>
+<td>BILL_AMT3_woe</td>
+<td>0.009455</td>
+</tr>
+<tr>
+<th>11</th>
+<td>BILL_AMT6_woe</td>
+<td>0.007932</td>
+</tr>
+<tr>
+<th>3</th>
+<td>BILL_AMT4_woe</td>
+<td>0.007371</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -11745,11 +11984,11 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>69</td>
+<td>68.9</td>
 </tr>
 <tr>
 <th>1</th>
-<td>31</td>
+<td>31.1</td>
 </tr>
 </tbody>
 </table>
@@ -11766,6 +12005,35 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Proporsi yang didapatkan adalah 69:31. Dengan ini data train dapat dikatakan sudah balance.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Menyimpan-Pickle">Menyimpan Pickle<a class="anchor-link" href="#Menyimpan-Pickle">¶</a></h3><p>Dataset-dataset yang telah ditransformasi dan dicross-validasi di langkah-langkah sebelumnya kemudian akan disimpan ke dalam bentuk pickle agar dapat digunakan pada proses modeling:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">credit_default_datasets</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'credit_default'</span><span class="p">:</span> <span class="n">credit_default</span><span class="p">,</span> <span class="s1">'x_train'</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span> <span class="s1">'x_test'</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s1">'y_train'</span><span class="p">:</span> <span class="n">y_train</span><span class="p">,</span> <span class="s1">'y_test'</span><span class="p">:</span> <span class="n">y_test</span><span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'credit_default_datasets.pkl'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">credit_default_datasets</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
